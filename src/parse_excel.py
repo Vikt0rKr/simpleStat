@@ -4,6 +4,7 @@ import numbers
 import re
 from normal_test import normal_test
 from calc_t_test import calc_t_test
+from calc_fisher_exact import calc_fisher_exact
 
 
 def parse_excel_file():
@@ -20,10 +21,6 @@ def parse_excel_file():
                 # currently, only xlsx format is supported -> TODO
                 if file.is_file() and file.name == '{file_name}.xlsx'.format(file_name=name):
                     if pages_count != None and isinstance(int(pages_count), numbers.Number):
-                        # # ask if F-test is needed
-                        # need_f_test = str(
-                        #     input('Make a Fisher F-criteria test? y/n:'))
-
                         # if re.match(r'^y', need_f_test, re.IGNORECASE):
                         #     print('processing Fisher F-criteria test...')
 
@@ -49,6 +46,9 @@ def parse_excel_file():
                             # ask if T-test is needed
                             need_t_test = input(
                                 'Do you need T-test for the data? y/n: ')
+                            # ask if F-test is needed
+                            need_f_test = input(
+                                'Do you need Fisher exact test for the data? y/n: ')
 
                             for page in range(0, int(pages_count)):
                                 data_book = pd.read_excel(file.name, page)
@@ -64,6 +64,10 @@ def parse_excel_file():
                             if re.match(r'^y', need_t_test, re.IGNORECASE):
                                 calc_t_test(data_book, pages_count,
                                             writer, xl_file)
+                            # Fisher exact test processing
+                            if re.match(r'^y', need_f_test, re.IGNORECASE):
+                                calc_fisher_exact(data_book, pages_count,
+                                                  writer, xl_file)
                         print('Completed xlsx convertation')
                     else:
                         print('Cannot detect file or format is incorrect')

@@ -1,11 +1,11 @@
 from scipy.stats import ttest_ind
 import pandas as pd
+from config import res_column_name, alpha
 
 
 def calc_t_test(data_frame, pages_count,
                 writer, xl_file):
-    column_name = 'Результат'
-    alpha = 1e-3
+    column_name = res_column_name
     # T-test is calculated for 2 result pages because they are being compared to each other
     if pages_count % 2 == 0 and column_name:
         calc_list = []
