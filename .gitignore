@@ -71,3 +71,6 @@ target/
 
 # vscode
 .vscode/
+
+# sample/test data
+*.xlsx

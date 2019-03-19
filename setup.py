@@ -14,7 +14,12 @@ setup(
     author="Victor Krivonos",
     packages=find_packages(),
     install_requires=[
-        'Pandas=0.24.2'
+        'pandas=0.24.2',
+        'numpy=1.16.2',
+        'python-dateutil=2.8.0',
+        'pytz=2018.9',
+        'six=1.12.0',
+        'scipy=1.2.1'
     ],
     long_description=long_description,
     classifiers=[
