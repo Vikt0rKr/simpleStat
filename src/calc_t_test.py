@@ -1,6 +1,6 @@
 from scipy.stats import ttest_ind
 import pandas as pd
-from config import res_column_name, alpha
+from src.config import res_column_name, alpha
 
 
 def calc_t_test(data_frame, pages_count,

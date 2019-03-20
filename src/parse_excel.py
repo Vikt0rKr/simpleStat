@@ -2,10 +2,10 @@ import os
 import pandas as pd
 import numbers
 import re
-from normal_test import normal_test
-from calc_t_test import calc_t_test
-from calc_distribution_based_test import calc_distribution_based_test
-from calc_corellation import calc_corellation
+from src.normal_test import normal_test
+from src.calc_t_test import calc_t_test
+from src.calc_distribution_based_test import calc_distribution_based_test
+from src.calc_corellation import calc_corellation
 
 
 def parse_excel_file():

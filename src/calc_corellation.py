@@ -1,6 +1,6 @@
 from scipy.stats import pearsonr, spearmanr
 import pandas as pd
-from config import res_column_name, alpha
+from src.config import res_column_name, alpha
 
 
 # make a corellation analysis based on normal distribution -> Pearson if normal else Spearman

@@ -1,6 +1,6 @@
 from scipy.stats import fisher_exact, mannwhitneyu, normaltest
 import pandas as pd
-from config import res_column_name, alpha, digital_addiction_entry_level, digital_addiction_mid_level, subj_control_level_criteria
+from src.config import res_column_name, alpha, digital_addiction_entry_level, digital_addiction_mid_level, subj_control_level_criteria
 
 
 # try to calculate Fisher exact if normal test is ok, else calculate Manna-Whitney U test

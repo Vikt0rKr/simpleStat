@@ -1,7 +1,7 @@
 from scipy.stats import normaltest
 import pandas as pd
 import numbers
-from config import alpha
+from src.config import alpha
 
 
 def normal_test(data_frame, page, writer, sheet_names):
