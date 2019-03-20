@@ -1,5 +1,5 @@
 res_column_name = 'Результат'
-alpha = 1e-3
+alpha = 5e-2
 digital_addiction_entry_level = 16
 digital_addiction_mid_level = 23
 # Gretsov's modification test criteria for each scale

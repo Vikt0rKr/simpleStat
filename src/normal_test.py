@@ -1,12 +1,12 @@
 from scipy.stats import normaltest
 import pandas as pd
 import numbers
+from config import alpha
 
 
 def normal_test(data_frame, page, writer, sheet_names):
     for column in data_frame.columns:
         if column != 'ФИО':
-            alpha = 1e-3
             column_values = data_frame[column].get_values()
 
             for value in column_values:

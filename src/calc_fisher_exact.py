@@ -61,8 +61,6 @@ def calc_fisher_exact(data_frame, pages_count, writer, xl_file):
                     group_2_overall = {'external_locus': len(list(filter(lambda v: v < criteria[0], group_2))), 'normal_locus': len(list(filter(lambda v: criteria[0] <= v <= criteria[1], group_2))), 'internal_locus': len(
                         list(filter(lambda v: criteria[1] < v, group_2)))}
 
-                    print(group_1_overall, group_2_overall)
-
                     f_test_1, p_1 = fisher_exact([[group_1_overall['external_locus'], group_1_overall['normal_locus']], [
                         group_2_overall['external_locus'], group_2_overall['normal_locus']]])
 
