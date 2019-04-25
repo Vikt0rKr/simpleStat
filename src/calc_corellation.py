@@ -1,10 +1,17 @@
 from scipy.stats import pearsonr, spearmanr
 import pandas as pd
+import matplotlib
 from src.config import res_column_name, alpha
+
+matplotlib.use('TkAgg')
 
 
 # make a corellation analysis based on normal distribution -> Pearson if normal else Spearman
+
+
 def calc_corellation(data_frame, pages_count, writer, xl_file, normal_test_results):
+    import matplotlib.pyplot as plt
+
     column_name = res_column_name
     # T-test is calculated for 2 result pages because they are being compared to each other
     if pages_count % 2 == 0 and column_name:
@@ -31,6 +38,9 @@ def calc_corellation(data_frame, pages_count, writer, xl_file, normal_test_resul
                 if appropriate_stat_func == pearsonr:
                     print('[Corellation:{item_1}->{item_2}] Chosen {corr_test_title} for the corellation analysis because it suits current {type} distribution.'.format(
                         item_1=wanted_list[count], item_2=wanted_list[count+2], corr_test_title='Pearson' if appropriate_stat_func == pearsonr else 'Spearman', type='normal' if appropriate_stat_func == pearsonr else 'not normal'))
+                else:
+                    print('[Corellation:{item_1}->{item_2}] Chosen {corr_test_title} for the corellation analysis because it suits current {type} distribution.'.format(
+                        item_1=wanted_list[count], item_2=wanted_list[count+2], corr_test_title='Spearman' if appropriate_stat_func == pearsonr else 'Spearman', type='normal' if appropriate_stat_func == pearsonr else 'not normal'))
 
                 data_dict = {}
 
@@ -39,6 +49,11 @@ def calc_corellation(data_frame, pages_count, writer, xl_file, normal_test_resul
 
                     corr_test_res, p = appropriate_stat_func(
                         group_1, comparing_group)
+                    # make a scatter-type graph and save it as a separate image
+                    plt.scatter(comparing_group, group_1)
+                    plt.savefig(
+                        '{column}-{sheet}.png'.format(column=col, sheet=xl_file.sheet_names[count]))
+                    plt.close()
 
                     data_dict['{n}_p_{col}'.format(n=count, col=col)] = [p]
                     data_dict['{n}_null_{col}'.format(n=count, col=col)] = [

@@ -19,7 +19,10 @@ setup(
         'python-dateutil>=2.8.0',
         'pytz>=2018.9',
         'six>=1.12.0',
-        'scipy>=1.2.1'
+        'scipy>=1.2.1',
+        'matplotlib >= 3.0.3',
+        'openpyxl>=2.6.2',
+        'xlrd>=1.2.0'
     ],
     entry_points={
         'console_scripts': ['start-app=src.__init__:start'],
