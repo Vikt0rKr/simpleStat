@@ -7,11 +7,8 @@ Setup instructions:
 
 2)Clone this repository into your file system.
 
-3)Make a virtualenv:
-
-```pip3 install virtualenv```
-
-```virtualenv -m venv```
+3)Make a virtual env:
+```python3 -m venv env```
 
 4)Install dependencies:
 ```./venv/bin/python setup.py install```
